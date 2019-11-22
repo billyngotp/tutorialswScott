@@ -1,0 +1,17 @@
+{
+  "name": "serverprac",
+  "version": "1.0.0",
+  "description": "Mocking server testing",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.0"
+  }
+}
