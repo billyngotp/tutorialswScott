@@ -4,21 +4,26 @@
 import React, {Component} from 'react'
 
 export class Profile extends Component {
+    /*
     constructor(props) {
         super(props);
 
         this.state = {
-        };
+        
+        }
     }
-
+    */
     render() {
-        //this.prop.user.name
-        //this.prop.user.picture
-        //this.prop.user.phone
-        //this.prop.user.email
+        const {name, picture, phone, email, address} = this.props.user;
+        
 
         return (
             <>
+                <img src = {picture} /> 
+                <h1> {name} </h1>
+                <h2> {phone}</h2>
+                <h2> {email} </h2> 
+                <p> {address} </p>
             </>
         )
     }
