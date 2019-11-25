@@ -1,12 +1,12 @@
 import React from 'react'
 import hxh from "../assets/gonkillua.jpg"
-import {Users} from "./Users.js"
+import Users from "./Users"
 
 const News = () => {
     return(
         <>
         <div> This is the news section </div>
-        <img alt = "gonkillua" src = {hxh}/> 
+        <img alt = "gonkillua" src = {hxh} /> 
         <Users/>
         </>
 

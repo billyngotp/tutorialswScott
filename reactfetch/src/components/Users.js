@@ -1,10 +1,8 @@
 //React, {Component} from 'react is the same as import React from 'react'
 //in the class you need to do class ____ extends Component vs class ____ extends React.Component
-
 import React, {Component} from 'react'
-import {Profile} from "./Profile"
 
-export class Users extends Component {
+export default class Users extends Component {
     constructor(props) {
         super(props);
 
@@ -12,11 +10,10 @@ export class Users extends Component {
             userList:[]
         };
     }
-
     
     componentDidMount() {
         let site = 'http://localhost:3001/api/user';
-        const stockapi = "https://api.worldtradingdata.com/api/v1/stock?symbol=SNAP,TWTR,VOD.L&api_token=9eLj71kTKY1GKMStdknrBQBJBuphat2OX3qCcWez25RaSuZLoMUkpAEKJUQl" 
+        let stockapi = "https://api.worldtradingdata.com/api/v1/stock?symbol=SNAP,TWTR,VOD.L&api_token=9eLj71kTKY1GKMStdknrBQBJBuphat2OX3qCcWez25RaSuZLoMUkpAEKJUQl" 
         fetch(site)
         .then(response => response.json())
         .then (data => this.setState({ userList:data }))
@@ -24,8 +21,6 @@ export class Users extends Component {
     }
 
     render() {
-        //this.state.user.name
-        //this.state.user.picture email etc
         console.log(this.state.userList[0]);
         return (
             this.state.userList.map((user,index) => 
@@ -34,6 +29,16 @@ export class Users extends Component {
     }
 }
 
-//export class vs export default
-//exporting default means you export the whole thing
-//export class allows your to import {}
+
+const Profile =  (props) => {
+    const {name, picture, phone, email, address} = props.user;
+    return (
+        <>
+            <img src = {picture} /> 
+            <h1> {name} </h1>
+            <h2> {phone}</h2>
+            <h2> {email} </h2> 
+            <p> {address} </p>
+        </>
+    )
+}
