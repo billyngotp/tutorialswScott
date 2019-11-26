@@ -10,12 +10,12 @@ const passport = require('./config/passport')
 
 //Security
 app.use(cors());
-app.use(passport.initialize());
+//app.use(passport.initialize());
 
 //2 ways to do requests
 //basic way 
-app.use('/api', passport.authenticate('jwt', {session : false} ), apiRouter);
-
+//app.use('/api', passport.authenticate('jwt', {session : false} ), apiRouter);
+app.use('/api', apiRouter);
 app.use("/", (request, response) => {
     response.send("WeLCOME BeEp BoOp BoP");
 });

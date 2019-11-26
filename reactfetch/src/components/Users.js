@@ -11,34 +11,46 @@ export default class Users extends Component {
         };
     }
     
-    componentDidMount() {
+    async componentDidMount() {
         let site = 'http://localhost:3001/api/user';
         let stockapi = "https://api.worldtradingdata.com/api/v1/stock?symbol=SNAP,TWTR,VOD.L&api_token=9eLj71kTKY1GKMStdknrBQBJBuphat2OX3qCcWez25RaSuZLoMUkpAEKJUQl" 
-        fetch(site)
-        .then(response => response.json())
-        .then (data => this.setState({ userList:data }))
-        .catch(err => console.log(err))
+        fetch(stockapi)
+         .then(response => response.json())
+         .then (data => this.setState({ userList:data.data }))
+         .catch(err => console.log(err))
     }
 
     render() {
-        console.log(this.state.userList[0]);
+        console.log(this.state.userList + " is the fetch");
         return (
-            this.state.userList.map((user,index) => 
-            <Profile key = {index} user = {user} /> ) 
+            <> 
+            {this.state.userList.data.map((user,index) => 
+            <Profile user = {user} key = {index} /> ) }
+            </>
         )
     }
 }
 
 
-const Profile =  (props) => {
-    const {name, picture, phone, email, address} = props.user;
+const Profile = (props) => {
+    //const {name, picture, phone, email, address} = props.user;
+
+    const {data} = props.user;    
     return (
         <>
+            <div>
+            
+                <h2> {data}</h2>
+            </div>
+
+            {/*
             <img src = {picture} /> 
             <h1> {name} </h1>
             <h2> {phone}</h2>
             <h2> {email} </h2> 
             <p> {address} </p>
-        </>
+            */}
+
+        </> 
     )
 }
