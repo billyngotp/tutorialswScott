@@ -20,8 +20,6 @@ app.use("/", (request, response) => {
     response.send("WeLCOME BeEp BoOp BoP");
 });
 
-
-
 app.listen(PORT, (err) => {
     if(err) {
         console.log(err)
